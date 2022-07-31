@@ -4,6 +4,7 @@
 
 {% if player %}
 <h1>{{ player.first_name }} {{ player.last_name }}</h1>
+<h2>{{ player.team.name }}</h2>
 {% else %}
 <p>No player found.</p>
 {% endif %}

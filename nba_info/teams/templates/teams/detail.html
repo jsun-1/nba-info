@@ -1,10 +1,11 @@
-{% extends "players/base.html" %}
+{% extends "teams/base.html" %}
 
 {% block content %}
 
-{% if players %}
+{% if team %}
+<h1>{{ team.name }}</h1>
 <ul>
-  {% for player in players %}
+  {% for player in team.players.all %}
   <li>
     <a href="{% url 'players:detail' player.id %}">
       {{ player.first_name }} {{ player.last_name }}
@@ -13,7 +14,7 @@
   {% endfor %}
 </ul>
 {% else %}
-<p>No players found.</p>
+<p>No team found.</p>
 {% endif %}
 
 {% endblock %}
