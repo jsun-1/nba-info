@@ -1,0 +1,11 @@
+{% extends "players/base.html" %}
+
+{% block content %}
+
+{% if player %}
+<h1>{{ player.first_name }} {{ player.last_name }}</h1>
+{% else %}
+<p>No player found.</p>
+{% endif %}
+
+{% endblock %}

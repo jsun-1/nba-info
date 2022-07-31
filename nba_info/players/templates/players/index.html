@@ -1,0 +1,17 @@
+{% extends "players/base.html" %}
+
+{% block title %}All Players{% endblock %}
+
+{% block content %}
+
+{% if players %}
+<ul>
+  {% for player in players %}
+  <li>{{ player.id }} {{ player.first_name }} {{ player.last_name }}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No players found.</p>
+{% endif %}
+
+{% endblock %}
