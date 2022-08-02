@@ -1,0 +1,19 @@
+{% extends "contracts/base.html" %}
+{% load humanize %}
+
+{% block content %}
+
+{% if contract %}
+<h1>{{ contract.team }} - {{ contract.player }}</h1>
+<ul>
+  {% for salary in contract.salaries.all %}
+  <li>
+    {{ salary.year }} ${{ salary.salary|intcomma }}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No contract found.</p>
+{% endif %}
+
+{% endblock %}

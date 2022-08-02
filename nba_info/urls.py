@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    path('contracts/', include('nba_info.contracts.urls')),
     path('info/', include('nba_info.info.urls')),
     path('players/', include('nba_info.players.urls')),
     path('teams/', include('nba_info.teams.urls')),

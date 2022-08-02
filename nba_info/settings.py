@@ -40,12 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.humanize',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'nba_info.info.apps.InfoConfig',
     'nba_info.players.apps.PlayersConfig',
     'nba_info.teams.apps.TeamsConfig',
+    'nba_info.contracts.apps.ContractsConfig',
 ]
 
 MIDDLEWARE = [
