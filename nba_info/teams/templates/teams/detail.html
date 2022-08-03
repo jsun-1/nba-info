@@ -1,15 +1,23 @@
 {% extends "teams/base.html" %}
+{% load humanize %}
 
 {% block content %}
 
 {% if team %}
 <h1>{{ team.name }}</h1>
 <ul>
-  {% for player in team.players.all %}
+  {% for player in team.top_players_by_salary %}
   <li>
     <a href="{% url 'players:detail' player.id %}">
       {{ player.first_name }} {{ player.last_name }}
     </a>
+    <ul>
+      {% for salary in player.contract.salaries.all %}
+      <li>{{ salary.year }}: ${{ salary.salary|intcomma }}</li>
+      {% empty %}
+      <li>No contract salary info.</li>
+      {% endfor %}
+    </ul>
   </li>
   {% endfor %}
 </ul>

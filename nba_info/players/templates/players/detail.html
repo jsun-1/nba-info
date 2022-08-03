@@ -1,10 +1,26 @@
 {% extends "players/base.html" %}
+{% load humanize %}
 
 {% block content %}
 
 {% if player %}
 <h1>{{ player.first_name }} {{ player.last_name }}</h1>
 <h2>{{ player.team.name }}</h2>
+
+{% if player.contract %}
+<h3>Contract</h3>
+<ul>
+  {% for salary in player.contract.salaries.all %}
+  <li>
+      {{ salary.year }}: ${{ salary.salary|intcomma }}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<h3>No Contract</h3>
+{% endif %}
+
+
 {% else %}
 <p>No player found.</p>
 {% endif %}
